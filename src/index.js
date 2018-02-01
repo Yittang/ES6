@@ -164,4 +164,353 @@
 // console.log(Number.isNaN('1'))    //false
 // console.log(Number.isNaN(NaN))    //true
 
+
+
+/*--------------------------ES6中新增的数组-----------------------*/
+
+/*json数组格式*/
+// let json = {
+// 	'0': 'Yittang',
+// 	'1': '前端',
+// 	'2': '吃鸡',
+// 	length: 3
+// }
+
+// let arr = Array.from(json)
+// console.log(arr)    //转成了数组
+
 /*-------------------------------------------------------------*/
+
+// let arr = Array.of('Yittang', '前端')
+// console.log(arr)   //['Yittang', '前端']
+
+/*-------------------------------------------------------------*/
+
+// let arr = [1,2,3,4,5]
+// console.log(arr.find(function(value, index, arr) {
+// 	return value > 4 //5
+// }))
+
+/*-------------------------------------------------------------*/
+
+// let arr = [1,2,3,4]
+// arr.fill('Yittang', 1, 3)
+// console.log(arr)    //[1, "Yittang", "Yittang", 4]
+
+/*-------------------------------------------------------------*/
+
+// let arr = [1,2,3,4]
+// for(let item of arr) {
+// 	console.log(item)    //1 2 3 4
+// }
+
+/*-------------------------------------------------------------*/
+
+// let arr = ['Yittang', '前端', 'web']
+// let list = arr.entries()
+// console.log(list.next().value)  //[0, "Yittang"]
+// console.log(list.next().value)  //[1, "前端"]
+// console.log(list.next().value)  //[2, "web"]
+
+
+
+/*--------------------------ES6中的箭头函数和扩展-----------------------*/
+
+// const add = (a, b=1) => {
+// 	console.log(a + b)    //2
+// }
+// add(1)
+
+
+
+/*--------------------------ES6中的函数和数组补漏-----------------------*/
+
+// let json = {
+// 	a: 'Yittang',
+// 	b: 'web'
+// }
+
+// function print({a, b="前端"}) {
+// 	console.log(a, b)
+// }
+
+// print(json) //Yittang web
+
+/*-------------------------------------------------------------*/
+
+// let arr = ['Yittang', 'web', '前端']
+// function print(a,b,c) {
+// 	console.log(a,b,c)
+// }
+// print(...arr)    //Yittang web 前端
+
+/*-------------------------------------------------------------*/
+
+// let obj = {
+// 	a: 'Yittang',
+// 	b: 'web'
+// }
+
+// console.log('a' in obj)    //true
+
+/*-------------------------------------------------------------*/
+
+// let arr = [, 'Yittang',,]
+// console.log(0 in arr)  //false
+// console.log(1 in arr)  //true
+
+/*-------------------------------------------------------------*/
+
+// let arr = ['Yittang', 'web', '前端']
+// arr.forEach((val, index) => {
+// 	console.log(val, index)   //Yittang 0
+// 							  //web 1
+// 							  //前端 2
+// })
+
+// arr.filter(val => {
+// 	console.log(val)  //Yittang web 前端
+// })
+
+// arr.some(val => {
+// 	console.log(val)  //Yittang web 前端
+// })
+
+
+
+/*--------------------------ES6中对象-----------------------*/
+
+// let name = 'Yittang'
+// let age = '21'
+// let obj = {
+// 	name,
+// 	age
+// }
+// console.log(obj)   //{name: "Yittang", age: "21"}
+
+/*-------------------------------------------------------------*/
+
+// let obj1 = {name: 'Yittang', age: +0, number: NaN}
+// let obj2 = {name: 'Yittang', age: -0, number: NaN}
+// console.log(Object.is(obj1.name, obj2.name))    //true
+
+// console.log(obj1.age === obj2.age)   //true
+// console.log(Object.is(obj1.age, obj2.age))   //false
+
+// console.log(obj1.number === obj2.number)    //false
+// console.log(Object.is(obj1.number, obj2.number))    //true
+
+/*-------------------------------------------------------------*/
+
+// let obj = {a: 'Yittang'}
+// let obj2 = {b: 'web'}
+// let obj3 = {c: '前端'}
+
+// let obj4 = Object.assign(obj, obj2, obj3)
+// console.log(obj4)    //{a: "Yittang", b: "web", c: "前端"}
+
+
+
+/*--------------------------Symbol在对象中的作用-----------------------*/
+
+// let f = Symbol()
+// console.log(typeof f)  //symbol
+
+// let g = Symbol('Yittang')
+// console.log(g)    //Symbol(Yittang)
+
+/*-------------------------------------------------------------*/
+
+// let sym = Symbol()
+// let obj = {
+// 	[sym]: 'Yittang'
+// }
+// console.log(obj[sym])    //Yittang
+
+/*-------------------------------------------------------------*/
+
+// let obj = {
+// 	name: 'Yittang',
+// 	skill: 'web'
+// }
+// let age = Symbol()
+// obj[age] = 22
+// console.log(obj)    //{name: "Yittang", skill: "web", Symbol(): 22}
+
+// for(let item in obj) {
+// 	console.log(obj[item])    //Yittang web
+// }
+
+
+
+/*--------------------------Set和WeakSet数据结构-----------------------*/
+
+// let setArr = new Set([1,2,3,41,2,3,4])
+// console.log(setArr)    //Set(5) {1, 2, 3, 41, 4}
+
+// setArr.add(5)
+// console.log(setArr)    //Set(6) {1, 2, 3, 41, 4, 5}
+
+// console.log(setArr.has(3))    //true
+
+/*-------------------------------------------------------------*/
+
+// let weakObj = new WeakSet()
+// let obj = {
+// 	a: 'Yittang',
+// 	b: 'web'
+// }
+
+// weakObj.add(obj)
+// console.log(weakObj)    //WeakSet {{…}}
+
+
+
+/*--------------------------map数据结构-----------------------*/
+
+// let json = {
+// 	name: 'Yittang',
+// 	age: 1
+// }
+
+// let map = new Map()
+// map.set(json, 'iam')
+// console.log(map)
+// map.set('Yittang', json)
+// console.log(map)
+// console.log(map.get(json))     //iam
+// map.delete(json)
+// console.log(map.size, map)
+// console.log(map.has('Yittang'))  //true
+
+
+
+/*--------------------------用Proxy进行预处理-----------------------*/
+
+// let pro = new Proxy(
+// 	{
+// 		add: function(val) {
+// 			return val+100
+// 		},
+// 		name: 'Yittang'
+// 	},
+// 	{
+// 		get: function(target, key, prototype) {
+// 			console.log(key)    //name
+// 			return target[key]    //Yittang
+// 		},
+// 		set: function(target, key, value, receiver) {
+// 			console.log(`setting ${key} = ${value}`)
+// 			return target[key] = value
+// 		}
+// 	}
+// )
+
+// console.log(pro.name)
+// pro.name = 'hhh'
+// console.log(pro.name) //hhh
+
+/*-------------------------------------------------------------*/
+
+// let target = function() {
+// 	return 'Yittang'
+// }
+
+// let handler = {
+// 	apply(target, ctx, args) {
+// 		console.log('do apply')
+// 		return Reflect.apply(...arguments)
+// 	}
+// } 
+
+// let pro = new Proxy(target, handler)
+
+// console.log(pro())     //Yittang
+
+
+
+/*--------------------------promise对象的使用-----------------------*/
+
+let state=1
+ 
+// function step1(resolve,reject){
+//     console.log('1.开始-洗菜做饭')
+//     if(state==1){
+//         resolve('洗菜做饭--完成')
+//     }else{
+//         reject('洗菜做饭--出错')
+//     }
+// }
+ 
+ 
+// function step2(resolve,reject){
+//     console.log('2.开始-坐下来吃饭')
+//     state = 0
+//     if(state==1){
+//         resolve('坐下来吃饭--完成')
+//     }else{
+//         reject('坐下来吃饭--出错')
+//     }
+// }
+ 
+ 
+// function step3(resolve,reject){
+//     console.log('3.开始-收拾桌子洗完')
+//      if(state==1){
+//         resolve('收拾桌子洗完--完成')
+//     }else{
+//         reject('收拾桌子洗完--出错')
+//     }
+// }
+
+// new Promise(step1)
+// 	.then(
+// 		function(val) {
+// 			console.log(val)
+// 			return new Promise(step2)
+// 		}
+// 	)
+// 	.then(
+// 		function(val) {
+// 			console.log(val)
+// 			return new Promise(step3)
+// 		}
+// 	)
+// 	.then(
+// 		function(val) {
+// 			console.log(val)
+// 		}
+// 	)
+
+
+
+/*--------------------------class类的使用-----------------------*/
+
+// class People {
+// 	constructor(a, b) {
+// 		this.a = a
+// 		this.b = b
+// 	}
+
+// 	name(val) {
+// 		console.log(val)
+// 		return val
+// 	}
+
+// 	skill(val) {
+// 		console.log(this.name('小明') + ':' + 'skill:' + val)
+// 	}
+
+// 	add() {
+// 		return this.a + this.b
+// 	}
+// }
+
+// class Htmler extends People {
+
+// }
+
+// let xiaoming = new People(11,22)
+// let xiaofang = new Htmler(22,33)
+// console.log(xiaofang)
+// console.log(xiaoming.add())
